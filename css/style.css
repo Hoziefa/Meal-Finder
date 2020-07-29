@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+@font-face {
+  font-family: "Comic Sans MS";
+  src: url(../fonts/comic.ttf);
+}
+
+:root {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-user-select: none;
+  font-size: 1rem;
+  font-family: "Proxima Nova", "Montserrat";
+  -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f6cd61;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 3vmax;
+}
+
+h2,
+h3 {
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  color: gray;
+  line-height: 1.6;
+}
+
+p::first-letter {
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  border: none;
+  background-color: transparent;
+}
+
+button,
+select,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+hr {
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 3px;
+}
+
+@media (max-width: 600px) {
+  hr {
+    height: 3px !important;
+  }
+}
+
+:focus {
+  outline: none !important;
+}
+
+input::-webkit-input-placeholder {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  color: #bec6cc, #444451;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.container {
+  width: 1170px;
+  width: 92%;
+  width: 90vw;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 476px) {
+  .container {
+    width: 100% !important;
+  }
+}
+
+body {
+  background-color: #333;
+  color: whitesmoke;
+}
+
+.container {
+  text-align: center;
+  padding: 0.9375rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 5rem;
+}
+
+h1 {
+  color: #f6cd61;
+  margin-bottom: 2rem;
+}
+
+h1::first-letter {
+  font-size: larger;
+  font-weight: 900;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 1200px) {
+  .flex.flex:not(form) {
+    width: 30%;
+  }
+}
+
+.flex input,
+.flex button {
+  border: 2px solid #f6cd61;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #f6cd61;
+}
+
+.flex form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.flex form input {
+  border-radius: 10px 0 0 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-weight: 500;
+}
+
+.flex form input::-webkit-input-placeholder {
+  color: #f6cd61;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.flex form .search-btn {
+  border-left: none;
+}
+
+.flex .random-btn {
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+}
+
+.result-heading {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.result-heading h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Comic Sans MS";
+  position: relative;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.result-heading h4::before, .result-heading h4::after {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+.result-heading h4::before {
+  content: "\201C";
+  left: -52%;
+  top: 0;
+}
+
+.result-heading h4::after {
+  content: "\201D";
+  right: -52%;
+  bottom: 0;
+}
+
+.meals {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .meals {
+    -ms-grid-columns: (minmax(13rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+
+.meals .meal {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 4px 15px 10px rgba(0, 0, 0, 0.39);
+          box-shadow: 2px 4px 15px 10px rgba(0, 0, 0, 0.39);
+}
+
+.meals .meal > * {
+  pointer-events: none;
+}
+
+.meals .meal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: 0.3s 0.3s;
+  transition: 0.3s 0.3s;
+}
+
+.meals .meal img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  padding: 0.5rem;
+  background-color: #dedede;
+}
+
+.meals .meal .meal-info {
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size: 1.55rem;
+  -webkit-transition: 0.3s 0.3s;
+  transition: 0.3s 0.3s;
+}
+
+.meals .meal:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.meals .meal:hover .meal-info {
+  left: 50%;
+}
+
+.single-meal {
+  padding: 5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single-meal h2 {
+  margin-bottom: 3rem;
+  color: #f6cd61;
+}
+
+.single-meal img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+  background-color: #dedede;
+  border-radius: 5px;
+}
+
+.single-meal .single-meal-info {
+  margin: 2rem;
+  color: whitesmoke;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f6cd61;
+  border: 2px dashed #e09850;
+  border-radius: 5px;
+  width: 30%;
+  padding: 1rem 0;
+}
+
+.single-meal .single-meal-info p {
+  color: inherit;
+  padding: 1rem 0;
+}
+
+.single-meal .main { text-align: center; }
+
+.single-meal .main p {
+  color: whitesmoke;
+  font-size: 1.15rem;
+  font-family: "Helvetica Neue WGL", "Helvetica Neue";
+  letter-spacing: 0.5px;
+  width: 95%;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 1200px) {
+  .single-meal .main p {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.single-meal .main h3 {
+  color: #f6cd61;
+  font-size: 1.95rem;
+  margin: 1rem 0 0.7rem;
+}
+
+.single-meal .main ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(20rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single-meal .main ul li {
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 0.5rem;
+  border: 1px solid #ededed;
+  background-color: white;
+  border-radius: 3px;
+  color: #2d2013;
+}
+/*# sourceMappingURL=style.css.map */
