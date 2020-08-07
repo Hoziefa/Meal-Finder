@@ -5,6 +5,13 @@ const elements = {
     searchInput: document.getElementById("search"),
     singleMeal: document.getElementById("single-meal"),
     resultHeading: document.querySelector("#result-heading h4"),
+    domLoader: document.querySelector(".loader"),
+};
+
+const displayLoader = (show = false) => {
+    const { domLoader } = elements;
+
+    show ? domLoader.classList.add("show-loader") : domLoader.classList.remove("show-loader");
 };
 
 const clearContents = (...contents) => contents.forEach(content => (content.textContent = ""));
@@ -31,7 +38,11 @@ elements.form.addEventListener("submit", async e => {
 
     if (!query) return;
 
+    displayLoader(true);
+
     const { meals } = await getMeals(`/api/json/v1/1/search.php?s=${query}`);
+
+    displayLoader();
 
     if (!meals) return;
 
@@ -77,7 +88,11 @@ elements.mealsContainer.addEventListener("click", async ({ target }) => {
 
     let { id } = target.dataset;
 
+    displayLoader(true);
+
     const meal = await getMeals(`/api/json/v1/1/lookup.php?i=${id}`).then(({ meals: [meal] }) => meal);
+
+    displayLoader();
 
     if (!meal) return;
 
@@ -87,7 +102,11 @@ elements.mealsContainer.addEventListener("click", async ({ target }) => {
 });
 
 elements.randomBtn.addEventListener("click", async _ => {
+    displayLoader(true);
+
     const [meal] = await getMeals("/api/json/v1/1/random.php").then(({ meals }) => meals);
+
+    displayLoader();
 
     if (!meal) return;
 
