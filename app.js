@@ -49,7 +49,7 @@ const renderSingleMeal = meal => {
         { length: 20 },
         (_, idx) =>
             meal[`strIngredient${idx}`] && `${meal[`strIngredient${idx}`]} - ${meal[`strMeasure${idx}`]}`,
-    ).filter(ing => ing);
+    ).filter(Boolean);
 
     const { strMeal, idMeal, strMealThumb, strCategory, strArea, strInstructions } = meal;
 
