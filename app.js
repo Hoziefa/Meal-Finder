@@ -56,11 +56,9 @@ elements.form.addEventListener("submit", async e => {
 });
 
 const renderSingleMeal = meal => {
-    const ingredients = Array.from(
-        { length: 20 },
-        (_, idx) =>
-            meal[`strIngredient${idx}`] && `${meal[`strIngredient${idx}`]} - ${meal[`strMeasure${idx}`]}`,
-    ).filter(Boolean);
+    const ingredients = Array.from({ length: 20 }, (_, idx) => {
+        return meal[`strIngredient${idx}`] && `${meal[`strIngredient${idx}`]} - ${meal[`strMeasure${idx}`]}`;
+    }).filter(Boolean);
 
     const { strMeal, idMeal, strMealThumb, strCategory, strArea, strInstructions } = meal;
 
@@ -90,7 +88,7 @@ elements.mealsContainer.addEventListener("click", async ({ target }) => {
 
     displayLoader(true);
 
-    const meal = await getMeals(`/api/json/v1/1/lookup.php?i=${id}`).then(({ meals: [meal] }) => meal);
+    const [meal] = await getMeals(`/api/json/v1/1/lookup.php?i=${id}`).then(({ meals }) => meals);
 
     displayLoader();
 
